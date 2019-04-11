@@ -1,7 +1,5 @@
 package com.example.demo.service;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
-
 import com.example.demo.domain.Client;
 import com.example.demo.domain.Manager;
 import com.example.demo.mapper.ClientMapper;
@@ -22,27 +20,27 @@ public class ManagerService {
   private ClientMapper clientMapper;
 
   public Manager findById(int id) {
-    LOGGER.info("ManagerService#findById(" + id + ")");
+    log.info("ManagerService#findById(" + id + ")");
     return managerMapper.findById(id);
   }
 
   public List<Manager> findAll() {
-    LOGGER.info("ManagerService#findAll()");
+    log.info("ManagerService#findAll()");
     return managerMapper.findAll();
   }
 
   public void save(Manager manager) {
-    LOGGER.info("ManagerService#save manager with id: " + manager.getId());
+    log.info("ManagerService#save manager with id: " + manager.getId());
     managerMapper.save(manager);
   }
 
   public void update(Manager manager) {
-    LOGGER.info("ManagerService#update manager with id: " + manager.getId());
+    log.info("ManagerService#update manager with id: " + manager.getId());
     managerMapper.update(manager);
   }
 
   public void delete(int id) {
-    LOGGER.info("ManagerService#delete manager with id: " + id);
+    log.info("ManagerService#delete manager with id: " + id);
 
     List<Client> clients = clientMapper.findClientsForManager(id);
 
